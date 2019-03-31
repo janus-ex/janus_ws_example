@@ -47,4 +47,5 @@ blocks:
     jobs:
     - name: ex_unit
       commands:
+      - docker-compose up -d
       - mix test
