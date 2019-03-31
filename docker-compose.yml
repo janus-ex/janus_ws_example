@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  janus:
+    image: notseika/docker-janus
+    volumes:
+    - ./janus/etc/janus/:/opt/janus/etc/janus/
+    ports:
+    - 8188:8188
