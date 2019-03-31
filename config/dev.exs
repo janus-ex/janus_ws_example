@@ -12,13 +12,7 @@ config :janus_ws_example, JanusWsExampleWeb.Endpoint,
   code_reloader: true,
   check_origin: false,
   watchers: [
-    node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch-stdin",
-      cd: Path.expand("../assets", __DIR__)
-    ]
+    yarn: ["watch-stdin", cd: Path.expand("../assets", __DIR__)]
   ]
 
 # ## SSL Support

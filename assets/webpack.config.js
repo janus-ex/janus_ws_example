@@ -13,11 +13,16 @@ module.exports = (env, options) => ({
     ]
   },
   entry: {
-      './js/app.js': ['./js/app.js'].concat(glob.sync('./vendor/**/*.js'))
+    app: ['./js/app.js', './css/app.css'].concat(glob.sync('./vendor/**/*.js')),
+    tachyons: "tachyons/css/tachyons.css"
   },
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, '../priv/static/js')
+    filename: "js/[name].js",
+    path: path.resolve(__dirname, "../priv/static/")
+  },
+  resolve: {
+    modules: ["node_modules", __dirname + "/js"],
+    extensions: [".js"]
   },
   module: {
     rules: [
@@ -30,12 +35,12 @@ module.exports = (env, options) => ({
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       }
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '../css/app.css' }),
-    new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
+    new MiniCssExtractPlugin({ filename: 'css/[name].css', chunkFilename: "[id].css" }),
+    new CopyWebpackPlugin([{ from: 'static/', to: './' }])
   ]
 });
