@@ -1,4 +1,4 @@
-defmodule JanusWsExampleWeb.ChannelCase do
+defmodule Web.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,7 +21,7 @@ defmodule JanusWsExampleWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint JanusWsExampleWeb.Endpoint
+      @endpoint Web.Endpoint
     end
   end
 end

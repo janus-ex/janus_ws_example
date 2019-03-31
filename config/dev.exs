@@ -46,13 +46,12 @@ config :janus_ws_example, JanusWsExampleWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :janus_ws_example, JanusWsExampleWeb.Endpoint,
+config :janus_ws_example, Web.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
-      ~r{lib/janus_ws_example_web/views/.*(ex)$},
-      ~r{lib/janus_ws_example_web/templates/.*(eex)$}
+      ~r{lib/web/views/.*(ex)$},
+      ~r{lib/web/templates/.*(eex)$}
     ]
   ]
 

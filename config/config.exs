@@ -8,11 +8,11 @@
 use Mix.Config
 
 # Configures the endpoint
-config :janus_ws_example, JanusWsExampleWeb.Endpoint,
+config :janus_ws_example, Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "4Pn8FK3iz4GRvLJ2ZC0+gRJyO+ZxvYoYQSWBKDvTG/kVXeGyZlKFpoM9vf339ujw",
-  render_errors: [view: JanusWsExampleWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: JanusWsExample.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: Web.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: JanusEx.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
