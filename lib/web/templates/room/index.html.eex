@@ -1,0 +1,19 @@
+<section class="sans-serif" id="rooms">
+  <ul class="list pl0">
+    <%= Enum.map(@rooms, fn %Room{name: name, history: history} -> %>
+    <li class="pa3 pa4-ns bb b--black-10">
+      <%= link to: Routes.room_path(@conn, :show, name) do %>
+        <b class="db f3 mb1"><%= name %></b>
+      <% end %>
+      <span class="f5 db lh-copy measure">
+      <%= case history do %>
+        <% [] -> %>
+          No messages
+        <% [%Room.Message{author: author, content: content} | _rest] -> %>
+          <strong><%= author %></strong> <%= content %>
+      <% end %>
+      </span>
+    </li>
+    <% end) %>
+  </ul>
+</section>

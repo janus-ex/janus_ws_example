@@ -6,13 +6,12 @@ defmodule Web.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/", Web do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", RoomController, :index
+    get "/:room_name", RoomController, :show
+    post "/:room_name/messages", MessageController, :create
+    put "/:room_name/messages", MessageController, :create
   end
 end

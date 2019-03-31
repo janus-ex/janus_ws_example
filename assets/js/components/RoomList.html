@@ -1,0 +1,17 @@
+<ul class="list pl0">
+	{#each rooms as room}
+	<RoomListItem {room} />
+	{:else}
+	<!-- TODO and in html.eex as well -->
+	<li class="pa3 pa4-ns">No rooms</li>
+	{/each}
+</ul>
+
+<script>
+  import RoomListItem from "./RoomListItem.html";
+  export default {
+    components: {
+      RoomListItem
+    }
+  };
+</script>

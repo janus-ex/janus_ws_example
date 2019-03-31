@@ -1,4 +1,4 @@
-defmodule JanusWsExample.MixProject do
+defmodule JanusEx.MixProject do
   use Mix.Project
 
   def project do
@@ -40,7 +40,8 @@ defmodule JanusWsExample.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:janus_ws, "~> 0.1.0"},
       {:dialyxir, "~> 1.0-rc", only: :dev, runtime: false},
-      {:credo, "~> 1.0", only: :dev, runtime: false}
+      {:credo, "~> 1.0", only: :dev, runtime: false},
+      {:floki, "~> 0.20.4", only: :test}
     ]
   end
 end

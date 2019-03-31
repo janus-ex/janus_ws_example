@@ -1,0 +1,39 @@
+<section class="sans-serif center measure-wide mb7" id="messages">
+  <ul class="list pl0">
+    <%= Enum.map(@messages, fn %Room.Message{author: author, content: content} -> %>
+    <li class="ph4 pv3 ph3-ns f5 lh-copy measure-wide">
+      <strong style="position:relative;right:0.66em;" class="ttu i"><%= author %></strong> <%= content %>
+    </li>
+    <% end) %>
+  </ul>
+</section>
+
+<%= form_for @conn, Routes.message_path(@conn, :create, @room_name),
+    [
+      class: "pa3 black-80 sans-serif bg-light-yellow w-40-ns w-100 bottom-2-ns bottom-0 right-0 fixed",
+      id: "messages-form",
+      as: :message
+    ],
+    fn f -> %>
+  <div class="measure">
+    <%= label f, :name, class: "f6 b db mb2" do %>
+      Name <span class="normal black-60">(optional)</span>
+    <% end %>
+    <%= text_input f, :name, class: "input-reset ba b--black-20 pa2 mb2 db w-100", aria: [describedby: "name-desc"] %>
+  </div>
+
+  <div>
+    <%= label f, :content, "Message", class: "f6 b db mb2" %>
+    <%= textarea f, :content,
+        class: "db border-box hover-black w-100 measure ba b--black-20 pa2 mb2",
+        placeholder: "Type your message here ...",
+        aria: [describedby: "comment-desc"] %>
+  </div>
+
+  <div class="mt3">
+    <%= submit "SEND IT (on press enter)",
+        class: "b ph3 pv2 w-100 input-reset ba b--black bg-transparent pointer f6 border-box" %>
+  </div>
+<% end %>
+
+<script>window.roomName = '<%= @room_name %>'</script>

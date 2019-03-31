@@ -8,10 +8,12 @@ defmodule JanusEx.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Start the endpoint when the application starts
+      # TODO could the room supervisor be a listener
+      JanusEx.Room.Registry.Listener,
+      {Registry,
+       name: JanusEx.Room.Registry, keys: :unique, listeners: [JanusEx.Room.Registry.Listener]},
+      JanusEx.Room.Supervisor,
       Web.Endpoint
-      # Starts a worker by calling: JanusWsExample.Worker.start_link(arg)
-      # {JanusWsExample.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

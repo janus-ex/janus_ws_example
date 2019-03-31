@@ -1,0 +1,14 @@
+<ul class="list pl0">
+	{#each messages as message}
+	<MessageListItem {message} />
+	{/each}
+</ul>
+
+<script>
+  import MessageListItem from "./MessageListItem.html";
+  export default {
+    components: {
+      MessageListItem
+    }
+  };
+</script>
