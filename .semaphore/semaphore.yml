@@ -21,7 +21,7 @@ blocks:
       - cache restore mix-build-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock),mix-build-$SEMAPHORE_GIT_BRANCH,mix-build-master
 
       - mix deps.get
-      - mix compile
+      - mix do compile, dialyzer --plt
       - MIX_ENV=test mix compile
 
       # we can store deps only after compilation, otherwise rebar3 deps (that is, almost all erlang deps) won't be cached
@@ -30,6 +30,8 @@ blocks:
 
       # static checks
       - mix format --check-formatted
+      - mix credo -a
+      - mix dialyzer --halt-exit-status --no-compile
 
 - name: Test
   task:
