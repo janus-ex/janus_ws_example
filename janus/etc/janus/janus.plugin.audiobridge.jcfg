@@ -35,11 +35,3 @@ general: {
 	#events = false					# Whether events should be sent to event
 									# handlers (default=true)
 }
-
-room-1234: {
-	description = "Demo Room"
-	secret = "adminpwd"
-	sampling_rate = 16000
-	record = false
-	#record_file = "/path/to/recording.wav"
-}

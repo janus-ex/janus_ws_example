@@ -138,7 +138,7 @@ media: {
 	#ipv6 = true
 	#max_nack_queue = 500
 	#rfc_4588 = true
-	#rtp_port_range = "20000-40000"
+	rtp_port_range = "10000-10200"
 	#dtls_mtu = 1200
 	#no_media_timer = 1
 	#twcc_period = 200

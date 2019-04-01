@@ -4,6 +4,7 @@ services:
   janus:
     image: notseika/docker-janus
     volumes:
-    - ./janus/etc/janus/:/opt/janus/etc/janus/
+      - ./janus/etc/janus/:/opt/janus/etc/janus/
     ports:
-    - 8188:8188
+      - 8188:8188
+      - 10000-10200:10000-10200/udp
