@@ -14,6 +14,8 @@ config :janus_ws_example, Web.Endpoint,
   render_errors: [view: Web.ErrorView, accepts: ~w(html json)],
   pubsub: [name: JanusEx.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :janus_ws_example, JanusEx.Room, interact_with_janus?: true
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

@@ -37,3 +37,4 @@
 <% end %>
 
 <script>window.roomName = '<%= @room_name %>'</script>
+<audio id="room" autoplay></audio>

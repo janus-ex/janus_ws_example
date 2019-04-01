@@ -5,7 +5,7 @@
     "deploy": "webpack --mode production --color",
     "build": "webpack --mode development --color",
     "watch": "webpack --mode development --watch --color",
-    "watch-stdin": "webpack --mode development --watch-stdin --color"
+    "watch-stdin": "webpack --mode development --watch-stdin --color --display minimal"
   },
   "dependencies": {
     "phoenix": "file:../deps/phoenix",

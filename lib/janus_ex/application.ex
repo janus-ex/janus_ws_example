@@ -13,6 +13,8 @@ defmodule JanusEx.Application do
       {Registry,
        name: JanusEx.Room.Registry, keys: :unique, listeners: [JanusEx.Room.Registry.Listener]},
       JanusEx.Room.Supervisor,
+      {Registry, keys: :duplicate, name: Janus.WS.Session.Registry},
+      {Janus.WS, url: "ws://localhost:8188", registry: Janus.WS.Session.Registry, name: Janus.WS},
       Web.Endpoint
     ]
 

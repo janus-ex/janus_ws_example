@@ -8,3 +8,5 @@ config :janus_ws_example, Web.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :janus_ws_example, JanusEx.Room, interact_with_janus?: false
