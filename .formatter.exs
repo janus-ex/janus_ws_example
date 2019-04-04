@@ -1,4 +1,4 @@
 [
   import_deps: [:phoenix],
-  inputs: ["*.{ex,exs}", "{config,lib,test}/**/*.{ex,exs}", ".credo.exs"]
+  inputs: ["*.{ex,exs}", "{config,lib,test}/**/*.{ex,exs}", ".credo.exs", "rel/**/*.exs"]
 ]
