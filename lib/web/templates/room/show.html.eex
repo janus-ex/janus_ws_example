@@ -1,5 +1,5 @@
-<section class="sans-serif center measure-wide mb7" id="messages">
-  <ul class="list pl0">
+<section class="sans-serif text-center max-w-lg mb-7" id="messages">
+  <ul>
     <%= Enum.map(@messages, fn %Room.Message{author: author, content: content} -> %>
     <li class="ph4 pv3 ph3-ns f5 lh-copy measure-wide">
       <strong style="position:relative;right:0.66em;" class="ttu i"><%= author %></strong> <%= content %>
@@ -10,7 +10,7 @@
 
 <%= form_for @conn, Routes.message_path(@conn, :create, @room_name),
     [
-      class: "pa3 black-80 sans-serif bg-light-yellow w-40-ns w-100 bottom-2-ns bottom-0 right-0 fixed",
+      class: "p-3 sans-serif bg-light-yellow w-40-ns w-100 bottom-2-ns bottom-0 right-0 fixed",
       id: "messages-form",
       as: :message
     ],

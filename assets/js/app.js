@@ -1,6 +1,8 @@
-import RoomList from "./components/RoomList.html";
-import MessageList from "./components/MessageList.html";
-import MessageForm from "./components/MessageForm.html";
+import "../css/app.css";
+
+import RoomList from "./components/RoomList.svelte";
+import MessageList from "./components/MessageList.svelte";
+import MessageForm from "./components/MessageForm.svelte";
 // import RoomAudio from "./components/RoomAudio.html";
 import socket from "./socket";
 
@@ -15,29 +17,29 @@ if (roomsTarget) {
 
   let roomListPromise = new Promise((resolve, reject) => {
     roomsChannel.join().receive("ok", ({ rooms }) => {
-      resolve(
-        new RoomList({
-          target: roomsTarget,
-          hydrate: true,
-          data: {
-            rooms: rooms.map(({ name, history }) => {
-              return { name, lastMessage: history[0] };
-            })
-          }
-        })
-      );
+      let roomList = new RoomList({
+        target: roomsTarget,
+        hydrate: true,
+        props: {
+          rooms: rooms.map(({ name, history }) => {
+            return { name, lastMessage: history[0] };
+          })
+        }
+      });
+
+      resolve(roomList);
     });
   });
 
   roomListPromise.then(roomList => {
     roomsChannel.on("new", ({ room: { name, history } }) => {
-      let rooms = roomList.get().rooms;
+      let rooms = roomList.$$.ctx.rooms;
       rooms.push({ name, lastMessage: history[0] });
-      roomList.set({ rooms });
+      roomList.$set({ rooms });
     });
 
     roomsChannel.on("message:new", ({ room_name, message }) => {
-      let rooms = roomList.get().rooms.map(room => {
+      let rooms = roomList.$$.ctx.rooms.map(room => {
         if (room.name === room_name) {
           room.lastMessage = message;
         }
@@ -45,7 +47,7 @@ if (roomsTarget) {
         return room;
       });
 
-      roomList.set({ rooms });
+      roomList.$set({ rooms });
     });
   });
 }
@@ -64,20 +66,20 @@ if (messagesTarget && messagesFormTarget) {
     let messageList = new MessageList({
       target: messagesTarget,
       hydrate: true,
-      data: { messages }
+      props: { messages }
     });
 
     roomChannel.on("message:new", ({ message }) => {
-      let messages = messageList.get().messages;
+      let messages = messageList.$$.ctx.messages;
       messages.push(message);
-      messageList.set({ messages });
+      messageList.$set({ messages });
     });
   });
 
   let messageForm = new MessageForm({
     target: messagesFormTarget,
     hydrate: true,
-    data: {
+    props: {
       submitEnabled: true,
       name: messagesFormTarget.querySelector("input#message_name").value,
       content: messagesFormTarget.querySelector("textarea#message_content")
@@ -85,9 +87,9 @@ if (messagesTarget && messagesFormTarget) {
     }
   });
 
-  messageForm.on("submit", ({ name, content }) => {
-    roomChannel.push("message:new", { name, content }).receive("ok", resp => {
-      messageForm.set({ content: "", submitEnabled: true });
+  messageForm.$on("submit", ({ detail }) => {
+    roomChannel.push("message:new", detail).receive("ok", resp => {
+      messageForm.$set({ content: "", submitEnabled: true });
     });
   });
 
