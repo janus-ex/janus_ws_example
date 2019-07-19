@@ -4,8 +4,8 @@
   "scripts": {
     "deploy": "webpack --mode production --color",
     "build": "webpack --mode development --color",
-    "watch": "webpack --mode development --watch --color",
-    "watch-stdin": "webpack --mode development --watch-stdin --color"
+    "watch": "yarn build --watch",
+    "watch-stdin": "yarn build --watch-stdin"
   },
   "dependencies": {
     "phoenix": "file:../deps/phoenix",
@@ -25,10 +25,8 @@
     "purgecss-webpack-plugin": "^1.5.0",
     "svelte": "^3.0.0",
     "svelte-loader": "^2.13.3",
-    "tachyons": "^4.11.1",
     "tailwindcss": "^1.0.5",
     "terser-webpack-plugin": "^1.2.3",
-    "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }
