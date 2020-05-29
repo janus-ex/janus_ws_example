@@ -15,7 +15,3 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 - Docs: https://janus.conf.meetecho.com/docs/
 - Mailing list: https://groups.google.com/forum/#!forum/meetecho-janus
 - Source: https://github.com/meetecho/janus-gateway
-
-## Live Example
-
-[`janus-ws.from.network`](https://janus-ws.from.network)
