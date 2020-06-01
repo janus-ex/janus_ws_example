@@ -4,8 +4,8 @@
   "scripts": {
     "deploy": "webpack --mode production --color",
     "build": "webpack --mode development --color",
-    "watch": "webpack --mode development --watch --color",
-    "watch-stdin": "webpack --mode development --watch-stdin --color --display minimal"
+    "watch": "yarn build --watch",
+    "watch-stdin": "yarn build --watch-stdin"
   },
   "dependencies": {
     "phoenix": "file:../deps/phoenix",
@@ -14,17 +14,20 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.0",
     "copy-webpack-plugin": "^5.0.2",
-    "css-loader": "^2.1.1",
-    "mini-css-extract-plugin": "^0.5.0",
+    "css-loader": "^3.1.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "svelte": "^2.16.1",
+    "postcss": "^7.0.17",
+    "postcss-loader": "^3.0.0",
+    "purgecss-webpack-plugin": "^1.5.0",
+    "svelte": "^3.0.0",
     "svelte-loader": "^2.13.3",
-    "tachyons": "^4.11.1",
+    "tailwindcss": "^1.0.5",
     "terser-webpack-plugin": "^1.2.3",
-    "uglifyjs-webpack-plugin": "^2.1.2",
-    "webpack": "4.29.6",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }
 }

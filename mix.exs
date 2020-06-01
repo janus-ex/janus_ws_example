@@ -5,7 +5,7 @@ defmodule JanusEx.MixProject do
     [
       app: :janus_ws_example,
       version: "0.1.0",
-      elixir: "~> 1.7",
+      elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -41,7 +41,7 @@ defmodule JanusEx.MixProject do
       {:janus_ws, "~> 0.1.0"},
       {:dialyxir, "~> 1.0-rc", only: :dev, runtime: false},
       {:credo, "~> 1.0", only: :dev, runtime: false},
-      {:floki, "~> 0.20.4", only: :test},
+      {:floki, "~> 0.21.0", only: :test},
       {:distillery, "~> 2.0", runtime: false}
     ]
   end

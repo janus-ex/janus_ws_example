@@ -2,7 +2,7 @@ version: "3"
 
 services:
   janus:
-    image: notseika/docker-janus
+    image: notseika/docker-janus:v0.7.3
     volumes:
       - ./janus/etc/janus/:/opt/janus/etc/janus/
     ports:

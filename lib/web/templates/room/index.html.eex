@@ -1,5 +1,5 @@
 <section class="sans-serif" id="rooms">
-  <ul class="list pl0">
+  <ul>
     <%= Enum.map(@rooms, fn %Room{name: name, history: history} -> %>
     <li class="pa3 pa4-ns bb b--black-10">
       <%= link to: Routes.room_path(@conn, :show, name) do %>
